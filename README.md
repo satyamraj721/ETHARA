@@ -1,166 +1,166 @@
-# 🚀 Team Task Manager - Full-Stack SaaS Platform
+# 🚀 ETHARA — Team Task Manager
 
+A **production-ready full-stack Team Task Management SaaS** with role-based authentication, project collaboration, and real-time dashboard analytics.
 
+🔗 **Live Frontend**: [https://victorious-dedication-production-cf92.up.railway.app](https://victorious-dedication-production-cf92.up.railway.app)  
+⚙️ **Live Backend API**: [https://ethara-production-57c4.up.railway.app](https://ethara-production-57c4.up.railway.app)  
+📦 **GitHub**: [https://github.com/satyamraj721/ETHARA](https://github.com/satyamraj721/ETHARA)
 
-A **production-ready full-stack team task management SaaS** with role-based authentication, project collaboration, and real-time dashboard analytics. Perfect for small teams and enterprises.
+---
+
+## 🔑 Test Credentials (Live App)
+
+| Role | Email | Password |
+|------|-------|----------|
+| **Admin** | admin5@example.com | 123456 |
+| **Member** | memberrbac1@example.com | 123456 |
+
+---
 
 ## ✨ Features
-- **Authentication**: Secure signup/login for **Admin** & **Member** roles (self-select during signup)
-- **Role-Based Access**: Admins manage users/projects; Members handle tasks
-- **Project Management**: Create projects, assign members, track progress
-- **Task Tracking**: Status (TODO/In Progress/Done), priority, due dates, assignees
-- **Dashboard**: Visual stats, recent activity
-- **Responsive UI**: Modern Tailwind CSS design
+
+- 🔐 **Authentication** — Secure Signup/Login with JWT
+- 👥 **Role-Based Access Control** — Admin & Member roles
+- 📁 **Project Management** — Create projects, assign members
+- ✅ **Task Tracking** — Status (TODO / In Progress / Done), priority, due dates, assignees
+- 📊 **Dashboard** — Visual stats, recent activity, overdue tasks
+- 📱 **Responsive UI** — Modern Tailwind CSS design
+
+---
 
 ## 🛠️ Tech Stack
-| Backend | Frontend | Database | Tools |
-|---------|----------|----------|-------|
-| Node.js, Express | React 18, Vite | PostgreSQL, Prisma ORM | JWT, bcrypt, Axios |
-| Prisma Client | Tailwind CSS | Migrations | Nodemon, ESLint |
 
-## 🎯 Quick Start (5 minutes)
+| Layer | Technology |
+|-------|------------|
+| **Backend** | Node.js, Express.js |
+| **Frontend** | React 18, Vite, Tailwind CSS |
+| **Database** | PostgreSQL, Prisma ORM |
+| **Auth** | JWT, bcrypt |
+| **Deployment** | Railway (Backend + DB + Frontend) |
+
+---
+
+## 🌐 Live Deployment
+
+| Service | URL |
+|---------|-----|
+| **Frontend** | https://victorious-dedication-production-cf92.up.railway.app |
+| **Backend API** | https://ethara-production-57c4.up.railway.app |
+| **Database** | PostgreSQL on Railway |
+
+---
+
+## 🎯 Quick Start (Local Development)
 
 ### Prerequisites
 - Node.js 18+
-- PostgreSQL (local/Docker/Supabase)
+- PostgreSQL
 - Git
 
 ### 1. Clone & Install
 ```bash
-git clone <your-repo> team-task-manager
-cd team-task-manager
+git clone https://github.com/satyamraj721/ETHARA.git
+cd ETHARA
+npm install
 ```
 
 ### 2. Backend Setup
 ```bash
-# Install deps
-npm install
-
-# Copy .env.example to .env
 cp .env.example .env
+# Update .env with your DATABASE_URL and JWT_SECRET
 
-# Update .env:
-# DATABASE_URL="postgresql://user:pass@localhost:5432/teamtasks?schema=public"
-# JWT_SECRET="your-super-secret-jwt-key-min32chars"
-# PORT=3001
-
-# Prisma setup
 npx prisma generate
-npx prisma db push  # or migrate dev
+npx prisma db push
 ```
 
 ### 3. Frontend Setup
 ```bash
 cd frontend
 npm install
-
-# Copy .env
 cp .env.example .env
-# VITE_API_URL=http://localhost:3001
+# Set VITE_API_URL=http://localhost:3001
 ```
 
 ### 4. Run Development Servers
-**Terminal 1 (Backend):**
+
+**Terminal 1 — Backend:**
 ```bash
 npm run dev  # http://localhost:3001
 ```
 
-**Terminal 2 (Frontend):**
+**Terminal 2 — Frontend:**
 ```bash
 cd frontend
 npm run dev  # http://localhost:5173
 ```
 
-### 5. Pre-seeded Test Accounts (Admin & Member)
+---
 
-**Run seed first (one-time):**
-```bash
-node seed.js
-```
+## 🧪 Test Accounts
 
-**Test Credentials (seed.js):**
-| Role | Email | Password | User ID |
-|------|-------|----------|---------|
-| **Admin** | `admin@example.com` | `admin123` | `admin-123` |
-| **Member** | `member@example.com` | `member123` | `member-123` |
+Use these credentials to test the live app:
 
-**Usage example**: Add member by **email** `member@example.com` (no need UUID!)
+| Role | Email | Password |
+|------|-------|----------|
+| **Admin** | admin5@example.com | 123456 |
+| **Member** | memberrbac1@example.com | 123456 |
 
-**Login**: http://localhost:5173 → Use above → Dashboard!
+---
 
-**Or create new via Signup**: /signup → Select Admin/Member role
+## 🔗 API Reference
 
-## 📱 Screenshots
-```
-[Add screenshots: signup form, dashboard, projects]
-Signup: Role selector for Admin/Member
-Dashboard: Task stats, quick actions
-```
-
-## 🔗 API Documentation
-Base URL: `http://localhost:3001`
+Base URL: `https://ethara-production-57c4.up.railway.app`
 
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
-| POST | `/auth/signup` | - | Create Admin/Member |
-| POST | `/auth/login` | - | JWT Login |
-| GET | `/dashboard` | ✓ | Stats |
-| POST | `/projects` | ✓ Admin | New project |
-| GET | `/projects` | ✓ | My projects |
-| POST | `/tasks` | ✓ | Create task |
+| POST | `/auth/signup` | ❌ | Register as Admin or Member |
+| POST | `/auth/login` | ❌ | Login and get JWT token |
+| GET | `/dashboard` | ✅ | Get dashboard stats |
+| POST | `/projects` | ✅ Admin | Create new project |
+| GET | `/projects` | ✅ | Get all projects |
+| POST | `/tasks` | ✅ | Create a task |
+| GET | `/tasks` | ✅ | Get all tasks |
 
-**Signup Payload:**
+### Signup Payload Example
 ```json
 {
   "name": "John Doe",
-  "email": "john@example.com", 
+  "email": "john@example.com",
   "password": "securepass",
-  "role": "ADMIN"  // or "MEMBER"
+  "role": "ADMIN"
 }
 ```
 
-## 🚀 Production Deployment
-- **Backend**: Railway/Render/Heroku → `npm run build && npm start`
-- **Frontend**: Vercel/Netlify → `npm run build`
-- **Database**: Supabase/Neon/PlanetScale
+---
 
-## 🧪 Testing
+## 📁 Project Structure
 
-**Seed test users:**
-```bash
-node seed.js
-# Creates: admin@example.com/admin123 (Admin), member@example.com/member123 (Member)
 ```
-
-**Prisma Studio:**
-```bash
-npx prisma studio
-```
-
-**Test Signup API:**
-```bash
-curl -X POST http://localhost:3001/auth/signup \\
-  -H "Content-Type: application/json" \\
-  -d '{"name":"Test User","email":"test@example.com","password":"test123","role":"ADMIN"}'
-```
-
-
-## 📈 Project Structure
-```
+ETHARA/
 ├── controllers/     # Business logic
-├── middleware/      # Auth/Validation
-├── prisma/          # DB Schema
-├── frontend/        # React+Vite+Tailwind
-├── routes/          # API Routes
-└── utils/           # Helpers
+├── middleware/      # Auth & validation
+├── prisma/          # DB schema & migrations
+├── routes/          # API route definitions
+├── utils/           # Helper functions
+├── frontend/        # React + Vite + Tailwind
+├── server.js        # Entry point
+└── seed.js          # Test data seeder
 ```
 
-## 🤝 Contributing
-1. Fork → Branch `feature/xyz`
-2. PR with description/tests
+---
+
+## 🚀 Deployment (Railway)
+
+1. Push code to GitHub
+2. Connect repo to Railway
+3. Add PostgreSQL plugin
+4. Set environment variables:
+   - `DATABASE_URL` — from Railway Postgres
+   - `JWT_SECRET` — your secret key
+5. Deploy ✅
+
+---
 
 ## 📄 License
-MIT
 
-**Built with ❤️ for recruiters - Ready for production!** 👨‍💻
-
+MIT — Built with ❤️ by [Satyam Raj](https://github.com/satyamraj721)
