@@ -1,8 +1,6 @@
 # 🚀 Team Task Manager - Full-Stack SaaS Platform
 
-[![Backend](https://img.shields.io/badge/Backend-Node_Express-Prisma-blue)](https://github.com/badges/shields/)
-[![Frontend](https://img.shields.io/badge/Frontend-React-Vite-Tailwind-green)](https://github.com/badges/shields/)
-[![Database](https://img.shields.io/badge/Database-PostgreSQL-Prisma-orange)](https://github.com/badges/shields/)
+
 
 A **production-ready full-stack team task management SaaS** with role-based authentication, project collaboration, and real-time dashboard analytics. Perfect for small teams and enterprises.
 
