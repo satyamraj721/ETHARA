@@ -22,7 +22,7 @@ A **production-ready full-stack Team Task Management SaaS** with role-based auth
 - 🔐 **Authentication** — Secure Signup/Login with JWT
 - 👥 **Role-Based Access Control** — Admin & Member roles
 - 📁 **Project Management** — Create projects, assign members
-- ✅ **Task Tracking** — Status (TODO / In Progress / Done), priority, due dates, assignees
+- ✅ **Task Tracking** — Status (TODO / In Progress / Done), priority, due dates, assigneeshj
 - 📊 **Dashboard** — Visual stats, recent activity, overdue tasks
 - 📱 **Responsive UI** — Modern Tailwind CSS design
 
